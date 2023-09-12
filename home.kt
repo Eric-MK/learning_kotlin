@@ -1,10 +1,10 @@
 fun main() {
-    val byteValue: Byte = 100
-    val shortValue: Short = 30000
+    val floatValue: Float = 3.14159265f
+    val doubleValue: Double = 3.141592653589793
 
-    println("Byte Value: $byteValue")
-    println("Short Value: $shortValue")
+    println("Float Value: $floatValue")
+    println("Double Value: $doubleValue")
 
-    val sum = byteValue + shortValue  // This is allowed, but you'll get a result of type Int.
+    val sum = floatValue + doubleValue
     println("Sum: $sum")
 }
