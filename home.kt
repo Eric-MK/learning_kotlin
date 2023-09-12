@@ -1,11 +1,13 @@
 fun main() {
-    val num = 42
-
-    if (num > 50) {
-        println("Number is greater than 50")
-    } else if (num == 50) {
-        println("Number is exactly 50")
-    } else {
-        println("Number is less than 50")
+    val day = 3  // It is similar to a switch statement in other programming languages, but it offers more flexibility and can be used as an expression, not just as a statement.
+    val dayOfWeek = when (day) {
+        1 -> "Monday"
+        2 -> "Tuesday"
+        3 -> "Wednesday"
+        4 -> "Thursday"
+        5 -> "Friday"
+        else -> "Weekend"
     }
+
+    println("It's $dayOfWeek.")
 }
