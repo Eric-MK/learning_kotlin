@@ -1,8 +1,16 @@
 fun main() {
-    var i = 1
-    while (i <= 5) {
-        println(i)
-        i++
+    var number = 0
+    while (number < 10) {
+        number++
+        
+
+if(number == 7)
+{
+
+    continue
+}
+        println(number)
+        
     }
     
 }
