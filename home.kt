@@ -1,14 +1,20 @@
-fun main(args: Array<String>) {
-  // Define an outer loop labeled as "loop"
-loop@ for (i in 1..3) {
-    println("Outer loop: $i")  // Print the value of i for the outer loop
-    for (j in 1..3) {
-        if (i == 2 && j == 2) {
-            break@loop // Breaks out of the outer loop labeled as "loop"
-        }
-        println("Inner loop: $j")  // Print the value of j for the inner loop
-    }
-}  
+fun main() {
+/*     Array: This represents a fixed-size array where the size is defined at the time of creation and cannot be changed.
+ */// Define an array of integers with a size of 5
+val numbers = arrayOf(1, 2, 3, 4, 5)
+
+// Access elements by index
+val firstNumber = numbers[0]  // Access the first element (index 0)
+val secondNumber = numbers[1] // Access the second element (index 1)
+
+// Get the size of the array
+val size = numbers.size
+
+// Loop through the array
+for (number in numbers) {
+    println(number)
+}
+
 }
 
 
