@@ -1,15 +1,33 @@
-class Person(val name: String) {
-    companion object {
-        const val DEFAULT_NAME = "Unknown" // A constant property
-        fun createDefaultPerson() = Person(DEFAULT_NAME) // A factory method
+// Define a Singleton class called MySingleton
+object MySingleton {
+    // Private nullable variable to hold the Singleton instance
+    private var instance: MySingleton? = null
+
+    // Function to get the Singleton instance
+    fun getInstance(): MySingleton {
+        // If the instance is not created, create it
+        if (instance == null) {
+            instance = MySingleton
+        }
+        // Return the Singleton instance
+        return instance!!
+    }
+
+    // Function to demonstrate a method of the Singleton
+    fun doSomething() {
+        println("Singleton is doing something")
     }
 }
 
+// Entry point of the program
 fun main() {
-    // Accessing a constant property from the companion object
-    println("Default Name: ${Person.DEFAULT_NAME}")
+    // Get the Singleton instance using the getInstance() method
+    val singleton1 = MySingleton.getInstance()
+    val singleton2 = MySingleton.getInstance()
 
-    // Using a factory method from the companion object to create a Person instance
-    val defaultPerson = Person.createDefaultPerson()
-    println("Default Person Name: ${defaultPerson.name}")
+    // Check if both references point to the same instance
+    println(singleton1 === singleton2) // Output: true (both references are the same)
+
+    // Call a method of the Singleton
+    singleton1.doSomething()
 }
