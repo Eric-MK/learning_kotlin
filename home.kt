@@ -1,26 +1,23 @@
-class ExampleClass(param1: String, param2: Int) {
-    val property1: String
-    val property2: Int
+class Person {
+    val fullName: String
 
-    init {
-        println("First init block (property1) executed")
-        property1 = param1.toUpperCase()
+    constructor(firstName: String, lastName: String) {
+        fullName = "$firstName $lastName"
     }
 
-    init {
-        println("Second init block (property2) executed")
-        property2 = param2 * 2
+    constructor(name: String) {
+        fullName = name
     }
 
-    companion object {
-        init {
-            println("Companion object init block executed")
-        }
-    }
+    // Other methods and properties...
 }
 
+
 fun main() {
-    val example = ExampleClass("hello", 3)
-    println("Property 1: ${example.property1}")
-    println("Property 2: ${example.property2}")
+    val person1 = Person("John", "Doe")
+val person2 = Person("Alice Johnson")
+
+println(person1.fullName) // Output: "John Doe"
+println(person2.fullName) // Output: "Alice Johnson"
+
 }
