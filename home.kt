@@ -1,4 +1,4 @@
-// Define a superclass called 'Animal'
+// Define a superclass called 'Animal' The open keyword indicates that this class can be subclassed (extended) by other classes, allowing for inheritance and method overriding.
 open class Animal(val name: String) {
     // Property and method of the superclass
     open fun makeSound() {
