@@ -1,28 +1,17 @@
-// Define a superclass called 'Animal' The open keyword indicates that this class can be subclassed (extended) by other classes, allowing for inheritance and method overriding.
-open class Animal(val name: String) {
-    // Property and method of the superclass
-    open fun makeSound() {
-        println("$name makes a sound")
-    }
+// Define a sealed class named 'Result'
+sealed class Result {
+    // Define a data class 'Success' as a subclass of 'Result'
+    data class Success(val data: String) : Result()
+    
+    // Define a data class 'Error' as a subclass of 'Result'
+    data class Error(val message: String) : Result()
 }
 
-// Define a subclass called 'Dog' that inherits from 'Animal'
-class Dog(name: String) : Animal(name) {
-    // Additional property of the subclass
-    val breed: String = "Unknown"
-
-    // Override the 'makeSound' method to provide a specific behavior for dogs
-    override fun makeSound() {
-        println("$name (a $breed dog) barks loudly")
+// Function to process a 'Result' object
+fun processResult(result: Result) {
+    // Use a 'when' expression to handle different cases of 'Result'
+    when (result) {
+        is Result.Success -> println("Success: ${result.data}")
+        is Result.Error -> println("Error: ${result.message}")
     }
-}
-
-fun main() {
-    // Create instances of the superclass and subclass
-    val genericAnimal = Animal("Generic Animal")
-    val myDog = Dog("Buddy")
-
-    // Call methods on both objects
-    genericAnimal.makeSound() // Output: Generic Animal makes a sound
-    myDog.makeSound()         // Output: Buddy (a Unknown dog) barks loudly
 }
