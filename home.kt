@@ -1,33 +1,28 @@
-// Define an outer class called OuterClass
-class OuterClass(private val outerProperty: Int) {
-
-    // Define an outer function
-    fun outerFunction() {
-        println("Outer function called")
+// Define a superclass called 'Animal'
+open class Animal(val name: String) {
+    // Property and method of the superclass
+    open fun makeSound() {
+        println("$name makes a sound")
     }
+}
 
-    // Define an inner class called InnerClass
-    inner class InnerClass(private val innerProperty: Int) {
-        // Define an inner function
-        fun innerFunction() {
-            println("Inner function called with innerProperty=$innerProperty")
-            
-            // Access the outerProperty from the outer class
-            println("Accessing outerProperty from inner class: $outerProperty")
-            
-            // Call the outerFunction from the outer class
-            outerFunction()
-        }
+// Define a subclass called 'Dog' that inherits from 'Animal'
+class Dog(name: String) : Animal(name) {
+    // Additional property of the subclass
+    val breed: String = "Unknown"
+
+    // Override the 'makeSound' method to provide a specific behavior for dogs
+    override fun makeSound() {
+        println("$name (a $breed dog) barks loudly")
     }
 }
 
 fun main() {
-    // Create an instance of the OuterClass with an outerProperty of 42
-    val outer = OuterClass(42)
-    
-    // Create an instance of the InnerClass using the outer instance
-    val inner = outer.InnerClass(10)
+    // Create instances of the superclass and subclass
+    val genericAnimal = Animal("Generic Animal")
+    val myDog = Dog("Buddy")
 
-    // Call the innerFunction, which will access both inner and outer properties/functions
-    inner.innerFunction()
+    // Call methods on both objects
+    genericAnimal.makeSound() // Output: Generic Animal makes a sound
+    myDog.makeSound()         // Output: Buddy (a Unknown dog) barks loudly
 }
