@@ -1,27 +1,33 @@
-// Define an enum class called DayOfWeek with an additional property 'abbreviation'
-enum class DayOfWeek(val abbreviation: String) {
-    MONDAY("Mon"),      // Enum constant with an abbreviation
-    TUESDAY("Tue"),     // Enum constant with an abbreviation
-    WEDNESDAY("Wed"),   // Enum constant with an abbreviation
-    THURSDAY("Thu"),    // Enum constant with an abbreviation
-    FRIDAY("Fri"),      // Enum constant with an abbreviation
-    SATURDAY("Sat"),    // Enum constant with an abbreviation
-    SUNDAY("Sun")       // Enum constant with an abbreviation
+// Define an outer class called OuterClass
+class OuterClass(private val outerProperty: Int) {
+
+    // Define an outer function
+    fun outerFunction() {
+        println("Outer function called")
+    }
+
+    // Define an inner class called InnerClass
+    inner class InnerClass(private val innerProperty: Int) {
+        // Define an inner function
+        fun innerFunction() {
+            println("Inner function called with innerProperty=$innerProperty")
+            
+            // Access the outerProperty from the outer class
+            println("Accessing outerProperty from inner class: $outerProperty")
+            
+            // Call the outerFunction from the outer class
+            outerFunction()
+        }
+    }
 }
 
 fun main() {
-    // Create an instance of the enum class representing today's day
-    val today = DayOfWeek.SATURDAY
+    // Create an instance of the OuterClass with an outerProperty of 42
+    val outer = OuterClass(42)
+    
+    // Create an instance of the InnerClass using the outer instance
+    val inner = outer.InnerClass(10)
 
-    // Print the name and abbreviation of today's day
-    println("Today is ${today.name}, abbreviated as ${today.abbreviation}")
-
-    // Use a when expression to categorize the day of the week
-    when (today) {
-        // Check if today is Saturday or Sunday
-        DayOfWeek.SATURDAY, DayOfWeek.SUNDAY -> println("It's the weekend!")
-
-        // If not Saturday or Sunday, treat it as a weekday
-        else -> println("It's a weekday")
-    }
+    // Call the innerFunction, which will access both inner and outer properties/functions
+    inner.innerFunction()
 }
