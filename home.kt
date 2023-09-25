@@ -1,3 +1,7 @@
+
+
+/* Lazy initialization is a programming technique used to defer the creation or initialization of an object or resource until the moment it's actually needed. 
+ */
 class ExpensiveObject {
     init {
         println("ExpensiveObject created")
