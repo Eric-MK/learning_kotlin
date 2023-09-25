@@ -1,30 +1,27 @@
-
-
-/* Lazy initialization is a programming technique used to defer the creation or initialization of an object or resource until the moment it's actually needed. 
- */
-class ExpensiveObject {
-    init {
-        println("ExpensiveObject created")
-    }
-
-    fun doSomething() {
-        println("ExpensiveObject is doing something")
-    }
+// Define an enum class called DayOfWeek with an additional property 'abbreviation'
+enum class DayOfWeek(val abbreviation: String) {
+    MONDAY("Mon"),      // Enum constant with an abbreviation
+    TUESDAY("Tue"),     // Enum constant with an abbreviation
+    WEDNESDAY("Wed"),   // Enum constant with an abbreviation
+    THURSDAY("Thu"),    // Enum constant with an abbreviation
+    FRIDAY("Fri"),      // Enum constant with an abbreviation
+    SATURDAY("Sat"),    // Enum constant with an abbreviation
+    SUNDAY("Sun")       // Enum constant with an abbreviation
 }
 
 fun main() {
-    // Declare a lazy property of type ExpensiveObject
-    val lazyObject: ExpensiveObject by lazy {
-        ExpensiveObject()
+    // Create an instance of the enum class representing today's day
+    val today = DayOfWeek.SATURDAY
+
+    // Print the name and abbreviation of today's day
+    println("Today is ${today.name}, abbreviated as ${today.abbreviation}")
+
+    // Use a when expression to categorize the day of the week
+    when (today) {
+        // Check if today is Saturday or Sunday
+        DayOfWeek.SATURDAY, DayOfWeek.SUNDAY -> println("It's the weekend!")
+
+        // If not Saturday or Sunday, treat it as a weekday
+        else -> println("It's a weekday")
     }
-
-    println("Before accessing lazyObject")
-
-    // Accessing lazyObject for the first time (initialization occurs here)
-    lazyObject.doSomething()
-
-    println("After accessing lazyObject")
-
-    // Accessing lazyObject again (no reinitialization occurs)
-    lazyObject.doSomething()
 }
