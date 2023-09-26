@@ -1,13 +1,9 @@
 fun main() {
-    // Zipping two lists
-    val list1 = listOf("A", "B", "C")
-    val list2 = listOf(1, 2, 3)
-    val zipped = list1.zip(list2)
-    println("Zipped: $zipped")
+    val nestedList = listOf(listOf(1, 2, 3), listOf(4, 5), listOf(6, 7, 8))
 
-    // Associating elements from two lists
-    val keys = listOf("A", "B", "C")
-    val values = listOf(1, 2, 3)
-    val association = keys.associateWith { values[keys.indexOf(it)] }
-    println("Association: $association")
+    // Use the 'flatten' function to flatten the nested list
+    val flatList = nestedList.flatten()
+
+    println("Nested List: $nestedList")
+    println("Flat List: $flatList")
 }
