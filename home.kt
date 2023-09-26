@@ -1,17 +1,33 @@
 fun main() {
-    // List
-    val myList = listOf(1, 2, 3, 2, 4)
-    println("List: $myList")
+    val numbers = listOf(1, 2, 3, 4, 5)
 
-    // Set
-    val mySet = setOf(1, 2, 3, 2, 4)
-    println("Set: $mySet")
+    // Example 1: Squaring each number
+    val squaredNumbers = numbers.map { it * it }
 
-    // Map
-    val myMap = mapOf("one" to 1, "two" to 2, "three" to 3)
-    println("Map: $myMap")
+    // Example 2: Doubling each number
+    val doubledNumbers = numbers.map { it * 2 }
 
-    // Accessing elements in a map
-    val value = myMap["two"]
-    println("Value associated with 'two': $value")
+    // Example 3: Converting numbers to strings
+    val numberStrings = numbers.map { it.toString() }
+
+    // Example 4: Mapping to custom objects
+    data class Person(val name: String, val age: Int)
+    val people = numbers.map { Person("Person-$it", it * 10) }
+
+    // Example 5: Applying a more complex transformation
+    val customMapping = numbers.map {
+        if (it % 2 == 0) {
+            "Even"
+        } else {
+            "Odd"
+        }
+    }
+
+    // Printing the results
+    println("Original Numbers: $numbers")
+    println("Squared Numbers: $squaredNumbers")
+    println("Doubled Numbers: $doubledNumbers")
+    println("Number Strings: $numberStrings")
+    println("People: $people")
+    println("Custom Mapping: $customMapping")
 }
