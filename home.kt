@@ -1,15 +1,17 @@
 fun main() {
-    // Define an object expression inside a function In object-oriented programming (OOP), an object expression is a way to create an anonymous object or instance of a class without explicitly defining a named class.
-    val person = object {
-        val name = "Alice"
-        val age = 30
+    // List
+    val myList = listOf(1, 2, 3, 2, 4)
+    println("List: $myList")
 
-        fun greet() {
-            println("Hello, my name is $name and I'm $age years old.")
-        }
-    }
+    // Set
+    val mySet = setOf(1, 2, 3, 2, 4)
+    println("Set: $mySet")
 
-    // Access properties and call methods of the anonymous object
-    println(person.name) // Output: Alice
-    person.greet()       // Output: Hello, my name is Alice and I'm 30 years old.
+    // Map
+    val myMap = mapOf("one" to 1, "two" to 2, "three" to 3)
+    println("Map: $myMap")
+
+    // Accessing elements in a map
+    val value = myMap["two"]
+    println("Value associated with 'two': $value")
 }
