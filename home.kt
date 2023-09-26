@@ -1,30 +1,15 @@
-// Define an interface called 'Drawable'
-interface Drawable {
-    // Abstract method signature for drawing
-    fun draw()
-}
-
-// Implement the 'Drawable' interface in a class
-class Circle : Drawable {
-    override fun draw() {
-        println("Drawing a circle")
-    }
-}
-
-class Square : Drawable {
-    override fun draw() {
-        println("Drawing a square")
-    }
-}
-
 fun main() {
-    val circle = Circle()
-    val square = Square()
+    // Define an object expression inside a function In object-oriented programming (OOP), an object expression is a way to create an anonymous object or instance of a class without explicitly defining a named class.
+    val person = object {
+        val name = "Alice"
+        val age = 30
 
-    // Polymorphism: Both 'circle' and 'square' can be treated as 'Drawable'
-    val shapes: List<Drawable> = listOf(circle, square)
-
-    for (shape in shapes) {
-        shape.draw() // Calls the 'draw' method of each object
+        fun greet() {
+            println("Hello, my name is $name and I'm $age years old.")
+        }
     }
+
+    // Access properties and call methods of the anonymous object
+    println(person.name) // Output: Alice
+    person.greet()       // Output: Hello, my name is Alice and I'm 30 years old.
 }
