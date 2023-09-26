@@ -1,9 +1,9 @@
 fun main() {
-    val nestedList = listOf(listOf(1, 2, 3), listOf(4, 5), listOf(6, 7, 8))
+    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
-    // Use the 'flatten' function to flatten the nested list
-    val flatList = nestedList.flatten()
+    // Using 'filter' to keep only even numbers
+    val evenNumbers = numbers.filter { it % 2 == 0 }
 
-    println("Nested List: $nestedList")
-    println("Flat List: $flatList")
+    println("Original Numbers: $numbers")
+    println("Even Numbers: $evenNumbers")
 }
