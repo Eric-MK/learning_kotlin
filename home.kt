@@ -1,13 +1,9 @@
 
 fun main() {
-    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    val numbers = listOf(1, 2, 3, 4, 5)
 
-    // Take the first three elements
-    val firstThree = numbers.take(3)
-    
-    // Drop the first three elements
-    val withoutFirstThree = numbers.drop(3)
-    
+    // Find the first even number
+    val firstEven = numbers.find { it % 2 == 0 }
     
     }
 
