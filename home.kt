@@ -1,9 +1,19 @@
+data class Person(val name: String, val age: Int)
+
 fun main() {
-    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val people = listOf(
+        Person("Alice", 30),
+        Person("Bob", 25),
+        Person("Charlie", 30),
+        Person("David", 25),
+        Person("Eve", 35)
+    )
 
-    // Using 'filter' to keep only even numbers
-    val evenNumbers = numbers.filter { it % 2 == 0 }
+    // Grouping people by age
+    val groupedByAge = people.groupBy { it.age }
 
-    println("Original Numbers: $numbers")
-    println("Even Numbers: $evenNumbers")
+    // Printing the groups
+    groupedByAge.forEach { (age, group) ->
+        println("Age $age: $group")
+    }
 }
